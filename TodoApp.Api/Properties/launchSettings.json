@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "TodoApp.Api": {
+      "commandName": "Project",
+      "commandLineArgs": "start --cors *",
+      "launchBrowser": false
+    }
+  }
+}
