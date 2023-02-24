@@ -1,0 +1,11 @@
+﻿<table class="table">
+    <tbody>
+        @foreach (TodoItemDto item in Items)
+        {
+            <TodoItem Item="item"
+                      OnDeletedEventCallback="OnDeletedEventCallback"
+                      OnUpdatedEventCallback="OnUpdatedEventCallback"
+            />
+        }
+    </tbody>
+</table>

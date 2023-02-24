@@ -1,0 +1,53 @@
+﻿<tr>
+
+    <td class="align-middle">
+        <a href="@Item.Url" target="_blank">@Item.Title</a>
+    </td>
+
+    <td class="align-middle">
+        @Item.Author
+    </td>
+
+    @if (Item.Status == TodoItemStatus.Todo)
+    {
+        <td class="align-middle">
+            Added on @Item.DateAdded.ToString("d MMMM, yyyy")
+        </td>
+    }
+    else
+    {
+        <td class="align-middle">
+            Completed on @Item.DateCompleted!.Value.ToString("d MMMM, yyyy")
+        </td>
+    }
+
+    @if (Item.Status == TodoItemStatus.Todo)
+    {
+        <td class="align-middle">
+            <button type="button"
+                class="btn btn-success"
+                @onclick="() => OnCompletedAsync(Item.Id)">
+                Complete
+            </button>
+        </td>
+    }
+    else
+    {
+        <td class="align-middle">
+            <button type="button"
+                class="btn btn-warning"
+                @onclick="() => OnUncompletedAsync(Item.Id)">
+                Uncomplete
+            </button>
+        </td>
+    }
+
+    <td class="align-middle">
+        <button type="button"
+                class="btn btn-danger"
+                @onclick="() => OnDeletedAsync(Item.Id)">
+            Delete
+        </button>
+    </td>
+
+</tr>
