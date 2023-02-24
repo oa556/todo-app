@@ -1,0 +1,35 @@
+﻿@page "/create"
+
+<h2 class="text-center">Create Todo Item</h2>
+
+<EditForm Model="_request" OnValidSubmit="SubmitAsync" class="card card-body bg-light mt-5">
+    <DataAnnotationsValidator />
+    <div class="mb-3 row">
+        <label for="title" class="col-md-2 col-form-label">Title:</label>
+        <div class="col-md-10">
+            <InputText id="title" class="form-control" @bind-Value="_request.Title"/>
+            <ValidationMessage For="@(() => _request.Title)" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="author" class="col-md-2 col-form-label">Author:</label>
+        <div class="col-md-10">
+            <InputText id="author" class="form-control" @bind-Value="_request.Author"/>
+            <ValidationMessage For="@(() => _request.Author)" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="url" class="col-md-2 col-form-label">Url:</label>
+        <div class="col-md-10">
+            <InputText id="url" class="form-control" @bind-Value="_request.Url"/>
+            <ValidationMessage For="@(() => _request.Url)" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-success">Create</button>
+        </div>
+    </div>
+</EditForm>
+
+<SuccessNotification @ref="_notification"/>
